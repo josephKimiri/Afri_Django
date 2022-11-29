@@ -7,6 +7,7 @@ from .views.cart import Cart
 from .views.checkout import CheckOut
 from .views.orders import OrderView
 from .middlewares.auth import  auth_middleware
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 
 urlpatterns = [
@@ -21,3 +22,4 @@ urlpatterns = [
     path('orders', auth_middleware(OrderView.as_view()), name='orders'),
 
 ]
+urlpatterns += staticfiles_urlpatterns()
